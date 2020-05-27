@@ -1,0 +1,138 @@
+/*
+Q2. i
+A color gradient background has been applied to the body using 'background-image' property and using 'liner-gradient'.
+*/
+body
+{
+    background-image: linear-gradient(to right,black,blue);
+    background-color:black;
+    color:white;
+    margin:0;
+    margin-top:3.5%;
+    padding:0;
+    overflow: auto;
+}
+h6 
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 10px;
+    text-transform: capitalize;
+}
+.container 
+{
+    margin:0;
+    padding:0;
+}
+/*
+Q2. ii
+A box that keeps moving from corner to corner in an infinite loop
+This is achieved by changing the left/right/top/bottom attributes of the div accordingly and using css transitions
+*/
+.keepMoving 
+{
+    width: 50px;
+    height: 50px;
+    margin-left:3%;
+    margin-right: 3%;
+    background-image: linear-gradient(to left,yellow, red);
+    position: relative;
+    top:50px;
+    left:11.5%;
+    animation-name: moveAround;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes moveAround 
+{
+    0%   {left:11.5%; top:0px;}
+    25%  {left:78%; top:0px;}
+    50%  {left:78%; top:600px;}
+    75%  {left:11.5%; top:600px;}
+    100% {left:11.5%; top:0px;}
+}
+/*
+Q2. iii
+A list with custom bullets can be achieved either by using an image as the bullet using 'list-style-image' property.
+Here, 'list-style-type' property has been used and it is set to some emojis which change on ebing hovered over (using ':hover' pseudoclass)
+Additionally, hovering over an li gives it a text-shadow.
+Q2. iv
+Several text-decorations have been applied to the list items like underline, overline and line-through and different text-decoration-style like wavy,solid,dashed have been applied.
+font-weight, font-variant, font-style (normal/italic/oblique) have also been applied.
+5 different custom google fonts have been used for the unordered list.
+text-tranform has been used to make the list header entirely uppercase using CSS without modifying the underlying HTML.
+*/
+ul 
+{
+    box-sizing: content-box;
+    margin-left:18%;
+    margin-right:20%;
+    margin-top:0;
+    margin-bottom:0;
+    font-size: 3rem;
+    font-family: 'Indie Flower', cursive;
+    text-transform: uppercase;
+    border:2px solid orange;
+    border-right:2px solid red;
+    border-left:2px solid yellow;
+    width:60%;
+}
+li:hover
+{
+    list-style-type: "\1F44D";
+    text-shadow: 1px 1px 10px white;
+}
+li 
+{
+    text-transform: none;
+    list-style-type: "\1F441";
+    list-style-position: outside;
+    min-height:20%;
+    margin:1%;
+    font-size:1.8rem;
+}
+li:nth-child(1)
+{
+    font-family: 'Josefin Sans', sans-serif;
+    text-decoration: yellow underline;
+}
+li:nth-child(2)
+{
+    font-family: 'Satisfy', cursive;
+    text-decoration: aqua overline underline;
+    text-decoration-style: double;
+}
+li:nth-child(3)
+{
+    font-family: 'Pacifico', cursive;
+    text-decoration: palevioletred underline;
+    text-decoration-style: wavy;
+}
+li:nth-child(4)
+{
+    font-family: 'Dancing Script', cursive;
+}
+#lineThrough
+{
+    text-decoration:yellow line-through;
+    text-decoration-style: dashed;
+}
+#fontWeight
+{
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    color:yellow;
+}
+#italic
+{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-style: italic;
+    color:plum;
+    font-weight: 800;
+}
+#stretchIt
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-variant: small-caps;
+    color: aquamarine;
+}

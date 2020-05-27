@@ -1,0 +1,290 @@
+/*
+Q1.ii
+Static background
+This is achieved by setting the background-attachment property to fixed so that the image doesnt scroll with content
+*/
+body
+{
+    background-image: url("../img/BG.jpg");
+    background-repeat: no-repeat;
+    background-position: 189px 0;
+    background-size: auto 100%;
+    background-attachment: fixed; 
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+}
+
+/*
+Q1.i
+Sticky sidebar 
+Setting position:fixed fixes the sidebar to its position so that it doesnt scroll with content
+Using float:left for the sidebar which has display:flex, we set the sidebar to be fixed to the left
+The sidebar items chnage color upon mousehover using ':hover' pseudoclass
+*/
+a
+{
+    text-decoration: none;
+    color:inherit;
+    font-family: inherit;
+    margin-bottom: 0;
+}
+
+.sidebar
+{
+    display:flex;
+    float:left;
+    position:fixed;
+    min-width: 10%;
+    height:98%;
+    background-color:black;
+    color:white;
+    margin:0px 0px;
+    display:flex;
+    flex-direction:column;
+    padding:1% 1%;
+    top:0px;
+    
+}
+
+.sidebar-item
+{
+    margin:20% auto;
+    padding:10% 0;
+    color:white;
+    background-color:#07b5e6;
+    border:3px solid black;
+    text-align: center;
+    width:50%;
+    height:5%;
+    font-family: 'Prompt', sans-serif;
+    text-transform: uppercase;
+}
+
+.sidebar-item:hover
+{
+    border:3px solid #07b5e6;
+    background-color:black;
+    color: white;
+}
+#montage
+{
+    margin-bottom:0;
+    max-width:10em;
+}
+
+#logo
+{
+    width:10.0em;
+}
+
+.sidebar-item .centered
+{
+    margin:7%;
+    padding:auto;
+}
+.centered h6 
+{
+    font-size: 5px;
+    color:black;
+}
+.sidebar-item:hover h6 
+{
+    position:relative;
+    top:0;
+    color:white;
+
+}
+
+.mainContent 
+{
+    background-color: rgba(7, 181, 230, 0.5);
+    height:100%;
+    width:83%;
+    padding:2%;
+    text-shadow: 1px 1px 5px floralwhite;
+    padding-left:15%;
+}
+hr + h4 
+{
+    margin-top:0;
+}
+
+p
+{
+    width: 96%;
+    margin-right:1%;
+    border:4px solid #07b5e6;
+    padding:1%;
+    background-color: white;
+    color: black;
+    text-shadow: none;
+    overflow: scroll;
+}
+/*
+Q1. vi
+flex boxes are used to make two boxes taking up 35% width with 10% margin on left side, in-between and right side.
+Text inside the boxes have been horizontally aligned using 'text-align:center' and vertical alignment using 'vertical-align:middle'.
+For the first box, 'opacity:0.5' has been applied to make entire box including text to have an opacity of 50%
+For the second box, the background-color is set using rgba giving the alpha attribute with the value 0.5
+*/
+.flexContainer
+{
+    display: flex;
+}
+.flexBox
+{
+    width:35%;
+    padding:3%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    font-family: 'Prompt', sans-serif;
+}
+
+#firstBox
+{
+    opacity:0.5;
+    margin-left:10%;
+    margin-right:5%;
+}
+
+#secondBox
+{
+    background-color: rgba(255,255,255,0.5);
+    margin-left: 5%;
+    margin-right:10%;
+}
+/*
+Q1.iii
+Striped table
+Stripes are given to the rows by applying different background colors to odd and even rows by using the css pseudoclass 'nth-of-type(odd)' and 'nth-of-type(even)'
+The table is made scrollable in the x direction by setting the 'overflow-x' property with the value 'scroll'
+Q1.iv
+':hover' pseudoclass is used to highlight the row that is being hovered over by changing background-color to black
+The mouse over and out animation is achieved using -web-transition property by giving the change in background-color a duration of 1s.
+*/
+table 
+{
+    margin:0 auto 3% 0;
+    text-shadow: none;
+    overflow-x: scroll;
+    overflow-y: auto;
+    border-collapse: collapse;
+    width:60%;
+    display: inline-block;
+    margin-right:0;
+}
+thead tr 
+{
+    background-color: #07b5e6; 
+}
+th, td
+{
+    padding:1%;
+    min-width:100px;
+    max-height: 400px;
+    overflow: scroll;
+    text-align: center;
+    vertical-align: middle;
+    border:1px solid black;
+    
+}
+tbody tr:nth-of-type(even)
+{
+    background-color: gray;
+    color:white;
+    /*The background-color changes, based upon the :hover pseudo element, 1s after the mouse has moved over the row*/
+    -webkit-transition: background-color 1s;
+}
+tbody tr:nth-of-type(odd)
+{
+    background-color: white;
+    color:black;
+    /*The background-color changes, based upon the :hover pseudo element, 1s after the mouse has moved over the row*/
+    -webkit-transition: background-color 1s;
+}
+tbody tr:hover 
+{
+    background-color:black;
+    color:white;
+    /*The background-color reverts back 1s after the mouse has moved from the row*/
+    -webkit-transition: background-color 1s;
+}
+
+table+img 
+{
+    display: flex;
+    float:left;
+    margin-left: 0;
+}
+
+/*
+Q1.v
+When one hovers over the '>>' box in this quote box, the quoteContent box expands to take up entire width. When this happens, '>>' is replaced by 'Peter'.
+This is achived using 'display:block'->'display:none'. Note that when we set display property of '>>' to none, the h6 element entirely vanishes leaving ebhing no empty space.
+In case we used 'visibility' property to do this, the space will still remain even though the content would be hidden.
+
+Here the quote in the quoteContent div is given a visibility:hidden. Note that even though the content is hidden, the space required to display it is still shown. 
+If we had used display:block -> display:none for this transition, initally the space required to display the quote wouldnt have been visible i.e. the height of the quoteContent div will not take into account the height required to diplay that quotee which was given 'display:none'.
+*/
+.quote
+{
+    width:83%;
+    padding:3%;
+    text-align: center;
+    vertical-align: middle;
+    background-color: white;
+    font-family: 'Prompt', sans-serif;
+    border:4px solid #07b5e6;
+    display: block;
+    overflow: auto;
+    height: 7.45em;
+    position: relative;
+    margin-left:10%;
+}
+.quoteCover
+{
+    display:block;
+    position: absolute;
+    width:93%;
+    z-index: 0;
+    border:1px solid #07b5e6;
+    background-color: #07b5e6;
+    text-shadow: none;
+}
+.quoteContent
+{
+    display: block;
+    position: absolute;
+    width: 15%;
+    transition: width 2s;
+    z-index: 1;
+    border:1px solid #07b5e6;
+    background-color: white;
+}
+.quoteContent h6 + h6 
+{
+    display: none;
+}
+.quoteContent:hover h6 + h6 
+{
+    display: block;
+}
+.quoteContent:hover h6 
+{
+    display: none;
+}
+.quoteContent h4
+{
+    visibility: hidden;
+}
+.quoteContent:hover
+{
+    display: block;
+    width:93%;
+}
+.quoteContent:hover h4
+{
+    visibility: visible;
+}
