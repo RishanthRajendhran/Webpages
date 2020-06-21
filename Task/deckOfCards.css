@@ -1,0 +1,155 @@
+body {
+    background-color: #fff5f5;
+    align-items: center;
+    justify-content: center;
+    padding:auto;
+}
+.row 
+{
+    display: block;
+}
+@media only screen and (max-width: 993px) {
+    .container {
+        display: block;
+        margin:auto;
+        padding:auto auto;
+        align-items: stretch;
+        padding:auto;
+    }
+
+    .card {
+        min-width: 80%;
+        max-width: 80%;
+        overflow: scroll;
+        margin:auto;
+        margin-top: 5%;
+        position: relative;
+        z-index: 5;
+        box-shadow: -1px 1px 15px 1px black;
+        text-align: center;
+        animation: moveIn 1s linear;
+    }
+
+    .card-title {
+        text-align: center;
+    }
+    .card:hover .card-title {
+        text-align: center;
+    }
+    .card-body {
+        color:black;
+    }
+    
+    .card:hover {
+        background-color: floralwhite;
+    }
+    @keyframes moveIn {
+        from {left:-100%;}
+        to {left:0;}
+    }
+}
+@media only screen and (min-width: 993px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        margin:auto;
+        padding:auto auto;
+        align-items: stretch;
+    }
+
+    .card {
+        min-width: 25%;
+        max-width: 25%;
+        max-height: 30rem;
+        overflow: scroll;
+        margin:1%;
+        position: relative;
+        z-index: 3;
+        box-shadow: -1px 1px 15px 1px black;
+        animation: moveIn1 1s linear;
+        perspective: 1000px;
+        background-color: floralwhite;
+    }
+
+    .card-inner {
+        transition: transform 1.5s 0.5s;
+        transform-style: preserve-3d;
+    }
+
+    .card-title {
+        margin-right: 2%;
+        text-align: center;
+    }
+    
+    .card:hover .card-inner {
+        z-index: 6;
+        transform: rotateY(180deg);
+    }
+
+    .card-front, .card-back {
+        -webkit-backface-visibility: hidden; 
+        backface-visibility: hidden;
+    }
+
+    .card-back {
+        position: relative;
+        top: -50%;
+        color:black;
+        transform: rotateY(180deg);
+        text-align: center;
+    }
+    .card-back h1 {
+        text-align: center;
+        text-shadow: 1px 1px 10px gray;
+    }
+    .card-back span {
+        display: block;
+        padding: 2.5%;
+        list-style: none;
+        list-style-position: inside;
+        color:black;
+    }
+
+    #Card2 {
+        left: -8%;
+        z-index:4;
+        animation:moveIn1 1s linear, stackIn2 0.5s 1s linear;
+    }
+    #Card3 {
+        overflow: show;
+        left: -16%;
+        z-index: 5;
+        animation:moveIn1 1s linear, stackIn3 0.5s 1s linear;
+    }
+    #Card4 {
+        left: -24%;
+        z-index: 4;
+        animation:moveIn1 1s linear, stackIn4 0.5s 1s linear;
+    }
+    #Card5 {
+        left: -30%;
+        z-index: 3;
+        animation:moveIn1 1s linear, stackIn5 0.5s 1s linear;
+    }
+
+    @keyframes moveIn1 {
+        from {left:-100%;}
+        to {left:0;}
+    }
+    @keyframes stackIn2 {
+        from {left:0%;}
+        to {left:-8%;}
+    }
+    @keyframes stackIn3 {
+        from {left:0%;}
+        to {left:-16;}
+    }
+    @keyframes stackIn4 {
+        from {left:0%;}
+        to {left:-24%;}
+    }
+    @keyframes stackIn5 {
+        from {left:0%;}
+        to {left:-30%;}
+    }
+}
